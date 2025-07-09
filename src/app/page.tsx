@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Upload, Target, Shield, BarChart3 } from 'lucide-react'
+import Image from 'next/image'
 
 export default function HomePage() {
   return (
@@ -25,6 +26,29 @@ export default function HomePage() {
           </div>
         </div>
       </header>
+
+      {/* Hero Banner */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="relative w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-2xl">
+          <Image
+            src="/Hero Banner.png"
+            alt="Dependency Visualizer - Interactive npm dependency analysis"
+            fill
+            style={{ objectFit: 'cover' }}
+            priority
+            className="rounded-2xl"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent rounded-2xl" />
+          <div className="absolute bottom-6 left-6 text-white">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2">
+              Visualize Dependencies Like Never Before
+            </h2>
+            <p className="text-lg opacity-90">
+              Interactive graphs • Security analysis • Real-time insights
+            </p>
+          </div>
+        </div>
+      </div>
 
       {/* Hero Section */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

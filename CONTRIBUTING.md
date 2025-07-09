@@ -1,113 +1,99 @@
-# Contributing to Dependency Visualizer
+# 🤝 Contributing to Dependency Visualizer
 
-Thank you for your interest in contributing to **Dependency Visualizer**! This project was created by **Muhammad Umar Farooq** and we welcome contributions that align with our vision of making dependency analysis beautiful and accessible.
+Thank you for your interest in contributing to **Dependency Visualizer**! This project demonstrates modern web development practices and welcomes community involvement.
 
-## 🚀 How to Contribute
+## 🎯 **About This Project**
 
-### 🐛 Bug Reports
-- Use GitHub Issues to report bugs
-- Include steps to reproduce
-- Attach screenshots/GIFs when helpful
-- Mention your browser and OS
+**Dependency Visualizer** is a showcase project by **Muhammad Umar Farooq** that demonstrates:
+- Modern React and Next.js development
+- Interactive data visualization techniques  
+- Security-focused application design
+- AI-assisted development workflows
 
-### 💡 Feature Requests
-- Check existing issues first
-- Clearly describe the use case
-- Explain why it would benefit users
-- Consider the 80/20 principle (maximum value, minimal complexity)
+## 💡 **Ways to Contribute**
 
-### 🔧 Code Contributions
+### 🐛 **Bug Reports**
+Found an issue? Help us improve by reporting bugs with:
+- Clear description of the problem
+- Steps to reproduce the issue
+- Expected vs actual behavior
+- Browser and device information
 
-#### Getting Started
-```bash
-# Fork the repository on GitHub
-git clone https://github.com/yourusername/Dependency-Visualizer.git
-cd Dependency-Visualizer
+### ✨ **Feature Suggestions**
+Have ideas for enhancements? Share your thoughts on:
+- New visualization features
+- Additional security integrations
+- UI/UX improvements
+- Performance optimizations
 
-# Install dependencies
-npm install
+### 📚 **Documentation**
+Help improve project documentation:
+- README enhancements
+- Code comments and explanations
+- Usage examples and tutorials
+- Technical architecture documentation
 
-# Start development server
-npm run dev
+### 🔧 **Code Contributions**
+Interested in contributing code? Focus areas include:
+- Performance optimizations
+- Accessibility improvements
+- Additional vulnerability data sources
+- Enhanced visualization features
+
+## 📋 **Contribution Guidelines**
+
+### **Quality Standards**
+- Follow existing code patterns and conventions
+- Maintain TypeScript type safety
+- Ensure responsive design principles
+- Write clear, descriptive commit messages
+
+### **Code Style**
+- Use existing ESLint and Prettier configurations
+- Follow React and Next.js best practices
+- Maintain clean, readable code structure
+- Include appropriate error handling
+
+### **Testing**
+- Test changes across different browsers
+- Verify responsive behavior on mobile devices
+- Ensure accessibility standards are met
+- Test with various package.json files
+
+## 🚀 **Getting Involved**
+
+### **Issue Creation**
+Use descriptive titles following this format:
+```
+feat: add new visualization feature
+fix: resolve security scan timeout
+docs: update API documentation  
+style: improve mobile responsiveness
 ```
 
-#### Development Workflow
-1. **Create a branch**: `git checkout -b feature/your-feature-name`
-2. **Follow our code style**: We use ESLint and Prettier
-3. **Write meaningful commits**: Use conventional commit format
-4. **Test your changes**: Ensure everything works locally
-5. **Update documentation**: Modify README if needed
+### **Pull Requests**
+- Reference related issues in PR descriptions
+- Provide clear explanation of changes
+- Include before/after screenshots for UI changes
+- Test thoroughly before submitting
 
-#### Code Standards
-- **TypeScript**: All new code must be typed
-- **Components**: Use functional components with hooks
-- **Styling**: Use Tailwind CSS utility classes
-- **Performance**: Consider the impact on load times
-- **Accessibility**: Follow WCAG guidelines
+## 🏆 **Recognition**
 
-#### Commit Message Format
-```
-type(scope): description
+Contributors will be acknowledged in:
+- Project documentation
+- Release notes
+- Community showcases
 
-feat(ui): add dark mode toggle
-fix(api): resolve npm registry timeout issue
-docs(readme): update installation instructions
-```
+## 📞 **Contact**
 
-### 📝 Documentation
-- Improve README clarity
-- Add code comments for complex logic
-- Update type definitions
-- Create tutorials or guides
+- **Project Creator**: Muhammad Umar Farooq
+- **GitHub**: [@farooqintheloop](https://github.com/farooqintheloop)
+- **Issues**: Use GitHub Issues for project-related discussions
 
-## 🎯 Project Vision
+## 📄 **License**
 
-This project aims to:
-- **Simplify complexity**: Make dependency analysis approachable
-- **Beautiful UX**: Every interaction should feel smooth
-- **Developer-first**: Built by developers, for developers
-- **Modern stack**: Leverage the best tools available
-
-## 🛡️ Code of Conduct
-
-### Our Standards
-- **Be respectful**: Treat all contributors with kindness
-- **Be constructive**: Provide helpful feedback
-- **Be inclusive**: Welcome developers of all skill levels
-- **Be patient**: Remember we're all learning
-
-### Not Acceptable
-- Harassment or discriminatory language
-- Trolling or unnecessarily disruptive behavior
-- Publishing others' private information
-- Any conduct that would be inappropriate in a professional setting
-
-## 🔍 Review Process
-
-1. **Automated checks**: ESLint, TypeScript, and build validation
-2. **Manual review**: Code quality, design patterns, and functionality
-3. **Testing**: Verify the feature works as expected
-4. **Documentation**: Ensure changes are properly documented
-
-## 🎁 Recognition
-
-Contributors will be:
-- Listed in our contributors section
-- Mentioned in release notes for significant contributions
-- Credited in any public presentations about the project
-
-## 📞 Getting Help
-
-- **GitHub Discussions**: For questions and brainstorming
-- **GitHub Issues**: For bug reports and feature requests
-- **Email**: umar57988@gmail.com for sensitive matters
-
-## 📜 License
-
-By contributing, you agree that your contributions will be licensed under the same license as the project. See [LICENSE](./LICENSE) for details.
+By contributing, you agree that your contributions will be licensed under the same terms as the project. See [LICENSE](./LICENSE) and [COPYRIGHT.md](./COPYRIGHT.md) for details.
 
 ---
 
-**Thank you for helping make Dependency Visualizer even better! 🚀**
-
-*Created by Muhammad Umar Farooq with ❤️ for the developer community* 
+**Together, let's make dependency visualization even better! 🎨🚀** 
