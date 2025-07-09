@@ -1,0 +1,76 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  name        String
+  version     String?
+  description String?
+  packageJson String   // Store the full package.json content
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  dependencies    Dependency[]
+  vulnerabilities Vulnerability[]
+  
+  @@map("projects")
+}
+
+model Dependency {
+  id             String  @id @default(cuid())
+  projectId      String
+  name           String
+  version        String
+  requestedRange String  // The version range from package.json (e.g., "^1.0.0")
+  dependencyType String  // "dependencies", "devDependencies", "peerDependencies"
+  depth          Int     @default(0) // How deep in the dependency tree
+  
+  // Metadata from npm registry
+  description String?
+  homepage    String?
+  repository  String?
+  license     String?
+  maintainers String? // JSON string of maintainers array
+  
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  
+  @@map("dependencies")
+  @@index([projectId])
+  @@index([name])
+}
+
+model Vulnerability {
+  id          String @id @default(cuid())
+  projectId   String
+  packageName String
+  
+  // Vulnerability details
+  cveId       String?
+  title       String
+  description String?
+  severity    String // "critical", "high", "medium", "low"
+  cvssScore   Float?
+  
+  // Version ranges affected
+  vulnerableVersions String
+  patchedVersions    String?
+  
+  // References
+  url         String?
+  source      String  @default("npm_audit") // "npm_audit", "github_advisory", etc.
+  
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  
+  @@map("vulnerabilities")
+  @@index([projectId])
+  @@index([packageName])
+}
