@@ -8,6 +8,11 @@
 ![Tailwind](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css)
 ![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
 
+<p align="center">
+  <img src="./public/Hero Banner.png" alt="Dependency Visualizer Hero Banner" width="100%" />
+</p>
+
+
 **Created by [Muhammad Umar Farooq](https://github.com/farooqintheloop) • Built with AI-assisted development**
 
 ---
