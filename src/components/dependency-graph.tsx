@@ -20,7 +20,14 @@ interface DependencyGraphProps {
 }
 
 // Custom node component
-function DependencyNodeComponent({ data }: { data: any }) {
+interface NodeData {
+  label: string
+  version: string
+  vulnerabilities: Vulnerability[]
+  dependencyType: string
+}
+
+function DependencyNodeComponent({ data }: { data: NodeData }) {
   const hasVulns = data.vulnerabilities.length > 0
   const vulnSeverity = hasVulns ? 
     data.vulnerabilities.reduce((max: string, vuln: Vulnerability) => {
@@ -144,17 +151,11 @@ export function DependencyGraph({ dependencies, vulnerabilities }: DependencyGra
     return { nodes, edges }
   }, [dependencies, vulnerabilities])
 
-  const [reactFlowNodes, setNodes, onNodesChange] = useNodesState(nodes)
-  const [reactFlowEdges, setEdges, onEdgesChange] = useEdgesState(edges)
-
-  const onNodeClick: NodeMouseHandler = useCallback((event, node) => {
-    const depNode = dependencies.find(dep => dep.id === node.id) ||
-                   dependencies.flatMap(dep => findNodeInTree(dep, node.id)).find(Boolean)
-    setSelectedNode(depNode || null)
-  }, [dependencies])
+  const [reactFlowNodes, , onNodesChange] = useNodesState(nodes)
+  const [reactFlowEdges, , onEdgesChange] = useEdgesState(edges)
 
   // Helper function to find node in tree
-  const findNodeInTree = (node: DependencyNode, targetId: string): DependencyNode | null => {
+  const findNodeInTree = useCallback((node: DependencyNode, targetId: string): DependencyNode | null => {
     if (node.id === targetId) return node
     
     for (const child of node.children) {
@@ -163,7 +164,15 @@ export function DependencyGraph({ dependencies, vulnerabilities }: DependencyGra
     }
     
     return null
-  }
+  }, [])
+
+  const onNodeClick: NodeMouseHandler = useCallback((event, node) => {
+    const depNode = dependencies.find(dep => dep.id === node.id) ||
+                   dependencies.flatMap(dep => findNodeInTree(dep, node.id)).find(Boolean)
+    setSelectedNode(depNode || null)
+  }, [dependencies, findNodeInTree])
+
+
 
   return (
     <div className="h-[600px] w-full relative">

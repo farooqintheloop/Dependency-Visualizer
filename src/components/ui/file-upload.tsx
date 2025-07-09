@@ -43,7 +43,7 @@ export function FileUpload({
         JSON.parse(content)
         setSelectedFile(file.name)
         onFileSelect(content, file.name)
-      } catch (error) {
+      } catch {
         setError('Invalid JSON format')
       }
     }

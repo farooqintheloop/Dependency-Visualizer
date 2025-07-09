@@ -7,7 +7,7 @@ export interface PackageJsonData {
   dependencies?: Record<string, string>;
   devDependencies?: Record<string, string>;
   peerDependencies?: Record<string, string>;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export interface DependencyNode {
@@ -26,6 +26,7 @@ export interface DependencyNode {
 
 export interface Vulnerability {
   id: string;
+  packageName: string;
   cveId?: string;
   title: string;
   description?: string;
@@ -93,7 +94,7 @@ export interface ReactFlowNode {
     description?: string;
   };
   position: { x: number; y: number };
-  style?: Record<string, any>;
+  style?: Record<string, unknown>;
 }
 
 export interface ReactFlowEdge {
@@ -101,7 +102,7 @@ export interface ReactFlowEdge {
   source: string;
   target: string;
   type?: string;
-  style?: Record<string, any>;
+  style?: Record<string, unknown>;
 }
 
 export interface AnalyzeRequest {

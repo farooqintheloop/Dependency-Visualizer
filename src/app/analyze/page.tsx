@@ -13,7 +13,7 @@ export default function AnalyzePage() {
   const [isAnalyzing, setIsAnalyzing] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const handleFileSelect = async (content: string, filename: string) => {
+  const handleFileSelect = async (content: string) => {
     setIsAnalyzing(true)
     setError(null)
     
@@ -39,8 +39,8 @@ export default function AnalyzePage() {
       } else {
         setError(result.error || 'Analysis failed')
       }
-    } catch (error) {
-      console.error('Analysis error:', error)
+    } catch {
+      console.error('Analysis error')
       setError('Failed to analyze package.json. Please try again.')
     } finally {
       setIsAnalyzing(false)
@@ -53,11 +53,11 @@ export default function AnalyzePage() {
       const result = await response.json()
       
       if (result.success) {
-        await handleFileSelect(result.packageJson, 'example-package.json')
+        await handleFileSelect(result.packageJson)
       }
-    } catch (error) {
-      setError('Failed to load example')
-    }
+          } catch {
+        setError('Failed to load example')
+      }
   }
 
   const resetAnalysis = () => {
@@ -108,7 +108,7 @@ export default function AnalyzePage() {
                 Upload Your Package.json
               </h2>
               <p className="text-lg text-gray-600">
-                Get instant insights into your project's dependency structure and security
+                Get instant insights into your project&apos;s dependency structure and security
               </p>
             </div>
 
@@ -128,7 +128,7 @@ export default function AnalyzePage() {
               
               <div className="mt-8 p-4 bg-gray-50 rounded-lg">
                 <h3 className="font-semibold text-gray-900 mb-2">
-                  What we'll analyze:
+                  What we&apos;ll analyze:
                 </h3>
                 <ul className="text-sm text-gray-600 space-y-1">
                   <li>• Dependency tree structure and relationships</li>

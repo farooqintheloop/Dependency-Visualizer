@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     // Validate JSON format
     try {
       JSON.parse(body.packageJson)
-    } catch (error) {
+    } catch {
       return NextResponse.json(
         { success: false, error: 'Invalid JSON format' },
         { status: 400 }

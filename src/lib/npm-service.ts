@@ -45,8 +45,8 @@ export class NpmService {
       npmCache.set(cacheKey, packageInfo)
       
       return packageInfo
-    } catch (error) {
-      console.error(`Error fetching package info for ${packageName}:`, error)
+    } catch (err) {
+      console.error(`Error fetching package info for ${packageName}:`, err)
       return null
     }
   }
@@ -61,7 +61,7 @@ export class NpmService {
     }
   }
   
-  static async runNpmAudit(packageJson: Record<string, any>): Promise<{ vulnerabilities: Vulnerability[], metadata: any }> {
+  static async runNpmAudit(packageJson: { dependencies?: Record<string, string>; devDependencies?: Record<string, string>; peerDependencies?: Record<string, string> }): Promise<{ vulnerabilities: Vulnerability[], metadata: Record<string, number> }> {
     try {
       // For now, we'll simulate npm audit by checking against a simple vulnerability list
       // In a production app, you'd want to either:
@@ -85,11 +85,12 @@ export class NpmService {
         ...packageJson.peerDependencies,
       }
       
-      for (const [depName, depVersion] of Object.entries(allDeps)) {
+      for (const [depName] of Object.entries(allDeps)) {
         const vulnerable = knownVulnerablePackages.find(pkg => pkg.name === depName)
         if (vulnerable) {
           vulnerabilities.push({
             id: `vuln-${depName}`,
+            packageName: depName,
             title: vulnerable.title,
             severity: vulnerable.severity,
             vulnerableVersions: vulnerable.versions.join(', '),

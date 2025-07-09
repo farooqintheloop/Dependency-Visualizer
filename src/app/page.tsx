@@ -34,7 +34,7 @@ export default function HomePage() {
             <span className="text-indigo-600"> like a neural network</span>
           </h1>
           <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
-            Visualize your project's dependency tree, identify security vulnerabilities, 
+            Visualize your project&apos;s dependency tree, identify security vulnerabilities, 
             and understand your codebase structure with interactive graphs.
           </p>
           
